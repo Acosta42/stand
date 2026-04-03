@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Carros - AutoLux</title>
+<link rel="stylesheet" href="style_carros.css">
+</head>
+<body>
+
+<header>
+<img src="banner.png" alt="Banner banana">
+</header>
+
+<nav>
+<div class="logo-esquerda">
+ <a href="index.html"><img src="logo-white.png" alt="Logo AutoLux"></a>
+</div>
+<div class="menu-centro">
+ <ul>
+ <li><a href="index.html" class="ativo">Home</a></li>
+ </ul>
+</div>
+<div class="vazio"></div>
+</nav>
+
+<section class="catalogo">
+<h2>Os nossos modelos em destaque na loja</h2>
+
+<div class="filtros">
+ <div class="filtro-grupo">
+  <label for="search-input">Pesquisar Modelo</label>
+  <input type="text" id="search-input" placeholder="Ex: M8 Coupé, X5 M..." />
+ </div>
+ <div class="filtro-grupo">
+  <label for="brand-select">Filtrar por Marca</label>
+  <select id="brand-select">
+   <option value="all">Todas as Marcas</option>
+  </select>
+ </div>
+</div>
+
+<div class="carrossel" aria-label="Carrossel de modelos">
+ <button class="prev" aria-label="Anterior">&#10094;</button>
+
+ <div class="carros">
+    <div class="carro" data-brand="Apresentação">
+   <video src="video1.mp4" autoplay muted loop controls playsinline></video>
+   <h3>AutoLux - A elegância em movimento</h3>
+   <p>Bem-vindo à nossa seleção de carros premium</p>
+   <span>Explore aqui os modelos:</span>
+  </div>
+
+    <div class="carro" data-brand="banana" data-link-img="banana i7 M70.png"><img src="Banana_1.jpeg" alt="banana i7 M70"><h3>banana i7 M70</h3><p>2024 | Elétrico | 5.000 km</p><span class="preco-carro">€125.000</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+  <div class="carro" data-brand="banana" data-link-img="banana M2.png"><img src="Banana_2.jpeg" alt="banana M2"><h3>banana M2</h3><p>2023 | Gasolina | 10.000 km</p><span class="preco-carro">€89.500</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+  <div class="carro" data-brand="banana" data-link-img="banana M3 Competition Touring.png"><img src="Banana_3.jpeg" alt="banana M3 Touring"><h3>banana M3 Competition Touring</h3><p>2023 | Gasolina | 12.000 km</p><span class="preco-carro">€98.900</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+  <div class="carro" data-brand="banana" data-link-img="banana M8 Coupé.png"><img src="Banana_4.jpeg" alt="banana M8 Coupé"><h3>banana M8 Coupé</h3><p>2022 | Gasolina | 8.000 km</p><span class="preco-carro">€112.400</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+  <div class="carro" data-brand="banana" data-link-img="banana X5 M.png"><img src="Banana_3.jpeg" alt="banana X5 M"><h3>banana X5 M</h3><p>2021 | Híbrido | 22.000 km</p><span class="preco-carro">€85.300</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+
+  <div class="carro" data-brand="outros-Benz" data-link-img="M_CLA.png"><img src="outro_1.jpeg" alt="outros CLA"><h3>outros CLA</h3><p>2024 | Elétrico | 5.000 km</p><span class="preco-carro">€125.000</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+  <div class="carro" data-brand="outros-Benz" data-link-img="M_ClassA.png"><img src="outro_2.jpeg" alt="outros Class A"><h3>outros Classe A</h3><p>2023 | Gasolina | 10.000 km</p><span class="preco-carro">€89.500</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+  <div class="carro" data-brand="outros-Benz" data-link-img="M_ClassB.png"><img src="outro_3.jpeg" alt="outros Class B"><h3>outros Classe B</h3><p>2023 | Gasolina | 12.000 km</p><span class="preco-carro">€98.900</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+
+  <div class="carro" data-brand="chourico" data-link-img="chourico Civic Type R.png"><img src="Chourico_1.jpeg" alt="chourico Civic Type R"><h3>chourico Civic Type R</h3><p>2023 | Gasolina | 10.000 km</p><span class="preco-carro">€89.500</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+  <div class="carro" data-brand="chourico" data-link-img="chourico CR-V Plug-in Hybrid.png"><img src="Chourico_2.jpeg" alt="chourico CR-V"><h3>chourico CR-V Plug-in Hybrid</h3><p>2023 | Gasolina | 12.000 km</p><span class="preco-carro">€98.900</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+  <div class="carro" data-brand="chourico" data-link-img="chourico ZR-V Hybrid.png"><img src="Chourico_3.jpeg" alt="chourico ZR-V Hybrid"><h3>chourico ZR-V Hybrid</h3><p>2023 | Gasolina | 6.000 km</p><span class="preco-carro">€132.000</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+  
+    <div class="carro" data-brand="banana" data-link-img="banana i7 M70.png"><img src="Banana_4.jpeg" alt="banana i7 M70"><h3>banana i7 M70</h3><p>2024 | Elétrico | 5.000 km</p><span class="preco-carro">€125.000</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="banana" data-link-img="banana M2.png"><img src="Banana_1.jpeg" alt="banana M2"><h3>banana M2</h3><p>2023 | Gasolina | 10.000 km</p><span class="preco-carro">€89.500</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="banana" data-link-img="banana M8 Coupé.png"><img src="Banana_3.jpeg" alt="banana M8 Coupé"><h3>banana M8 Coupé</h3><p>2022 | Gasolina | 8.000 km</p><span class="preco-carro">€112.400</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="banana" data-link-img="banana M8 Gran Coupé.png"><img src="Banana_4.jpeg" alt="banana M8 Gran Coupé"><h3>banana M8 Gran Coupé</h3><p>2022 | Gasolina | 9.000 km</p><span class="preco-carro">€114.200</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="banana" data-link-img="banana X4 M.png"><img src="Banana_1.jpeg" alt="banana X4 M"><h3>banana X4 M</h3><p>2021 | Gasolina | 20.000 km</p><span class="preco-carro">€78.600</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="banana" data-link-img="banana X5 M.png"><img src="Banana_3.jpeg" alt="banana X5 M"><h3>banana X5 M</h3><p>2021 | Híbrido | 22.000 km</p><span class="preco-carro">€85.300</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="banana" data-link-img="banana X7 M60i xDrive.png"><img src="Banana_2.jpeg" alt="banana X7 M60i"><h3>banana X7 M60i xDrive</h3><p>2023 | Gasolina | 6.000 km</p><span class="preco-carro">€132.000</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="banana" data-link-img="banana XM.png"><img src="Banana_4.jpeg" alt="banana XM"><h3>banana XM</h3><p>2024 | Híbrido | 4.000 km</p><span class="preco-carro">€145.900</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="outros-Benz" data-link-img="M_CLA.png"><img src="outro_1.jpeg" alt="outros CLA"><h3>outros CLA</h3><p>2024 | Elétrico | 5.000 km</p><span class="preco-carro">€125.000</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="outros-Benz" data-link-img="M_ClassA.png"><img src="outro_2.jpeg" alt="outros Class A"><h3>outros Classe A</h3><p>2023 | Gasolina | 10.000 km</p><span class="preco-carro">€89.500</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="outros-Benz" data-link-img="M_ClassB.png"><img src="outro_3.jpeg" alt="outros Class B"><h3>outros Classe B</h3><p>2023 | Gasolina | 12.000 km</p><span class="preco-carro">€98.900</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="outros-Benz" data-link-img="M_ClassC.png"><img src="outro_4.jpeg" alt="outros Class C"><h3>outros Classe C</h3><p>2022 | Gasolina | 8.000 km</p><span class="preco-carro">€112.400</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="outros-Benz" data-link-img="M_GLS.png"><img src="outro_5.jpeg" alt="outros GLS"><h3>outros GLS</h3><p>2022 | Gasolina | 9.000 km</p><span class="preco-carro">€114.200</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="chourico" data-link-img="chourico Civic Hybrid.png"><img src="Chourico_1.jpeg" alt="chourico Civic Hybrid"><h3>chourico Civic Hybrid</h3><p>2024 | Elétrico | 5.000 km</p><span class="preco-carro">€125.000</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="chourico" data-link-img="chourico Civic Type R.png"><img src="Chourico_2.jpeg" alt="chourico Civic Type R"><h3>chourico Civic Type R</h3><p>2023 | Gasolina | 10.000 km</p><span class="preco-carro">€89.500</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="chourico" data-link-img="chourico CR-V Plug-in Hybrid.png"><img src="Chourico_3.jpeg" alt="chourico CR-V"><h3>chourico CR-V Plug-in Hybrid</h3><p>2023 | Gasolina | 12.000 km</p><span class="preco-carro">€98.900</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="chourico" data-link-img="chourico eNy1.png"><img src="Chourico_4.jpeg" alt="chourico eNy1"><h3>chourico e:Ny1</h3><p>2022 | Gasolina | 8.000 km</p><span class="preco-carro">€112.400</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="chourico" data-link-img="chourico HR-V Hybrid.png"><img src="Chourico_1.jpeg" alt="chourico HR-V Hybrid"><h3>chourico HR-V Hybrid</h3><p>2022 | Gasolina | 9.000 km</p><span class="preco-carro">€114.200</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="chourico" data-link-img="chourico Jazz Crosstar Hybrid.png"><img src="Chourico_2.jpeg" alt="chourico Jazz Crosstar Hybrid"><h3>chourico Jazz Crosstar Hybrid</h3><p>2021 | Gasolina | 20.000 km</p><span class="preco-carro">€78.600</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="chourico" data-link-img="chourico Jazz Hybrid.png"><img src="Chourico_3.jpeg" alt="chourico Jazz Hybrid"><h3>chourico Jazz Hybrid</h3><p>2021 | Híbrido | 22.000 km</p><span class="preco-carro">€85.300</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+    <div class="carro" data-brand="chourico" data-link-img="chourico ZR-V Hybrid.png"><img src="Chourico_4.jpeg" alt="chourico ZR-V Hybrid"><h3>chourico ZR-V Hybrid</h3><p>2023 | Gasolina | 6.000 km</p><span class="preco-carro">€132.000</span><a href="#" class="btn-simular">Simular Crédito</a></div>
+ </div>
+
+ <div class="no-results">Nenhum carro encontrado com base nos seus critérios de pesquisa.</div>
+ 
+ <div class="carrossel-indicadores"></div> <button class="next" aria-label="Próximo">&#10095;</button>
+</div>
+</section>
+
+<script>
+// Função para extrair dados do carro e criar o link para o simulador
+function criarLinkSimulador(carroDiv) {
+  const nome = carroDiv.querySelector('h3').textContent.trim();
+  let precoTexto = carroDiv.querySelector('.preco-carro').textContent.replace('€', '').trim();
+  const preco = precoTexto.replace(/\./g, '').replace(',', '.'); 
+  const imagem = carroDiv.getAttribute('data-link-img');
+  
+  const nomeCodificado = encodeURIComponent(nome);
+  const precoCodificado = encodeURIComponent(preco);
+  const imagemCodificada = encodeURIComponent(imagem);
+  
+  return `stand_emprestimo.html?modelo=${nomeCodificado}&valor=${precoCodificado}&img=${imagemCodificada}`;
+}
+
+// ======================================================================
+// NOVO: Inicializa os links do simulador para todos os botões no DOM
+// ======================================================================
+function inicializarLinksBotoesSimular(cards) {
+  cards.forEach(card => {
+    const btn = card.querySelector('.btn-simular');
+    // Só configuramos o link se o botão e o atributo de imagem existirem (exclui o vídeo de Apresentação)
+    if (btn && card.getAttribute('data-link-img')) {
+      btn.href = criarLinkSimulador(card);
+    }
+  });
+}
+
+
+// ======================================================================
+// INÍCIO DO SCRIPT DO CARROSSEL
+// ======================================================================
+(function () { 
+  const carrossel = document.querySelector('.carrossel');
+  const carrosEl = carrossel.querySelector('.carros');
+  const allCards = Array.from(carrossel.querySelectorAll('.carro'));
+  const btnNext = carrossel.querySelector('.next');
+  const btnPrev = carrossel.querySelector('.prev');
+  const searchInput = document.getElementById('search-input');
+  const brandSelect = document.getElementById('brand-select');
+  const noResultsEl = carrossel.querySelector('.no-results');
+  const indicadoresContainer = carrossel.querySelector('.carrossel-indicadores'); 
+
+  let index = 0;
+  let visibleCardsCount = 4;
+  let cardWidth = 0;
+  let gap = 16;
+  let filteredCards = []; 
+
+  // NOVO: Função para criar/atualizar os indicadores
+  function updateIndicadores() {
+    indicadoresContainer.innerHTML = '';
+    const totalSlides = Math.ceil(filteredCards.length / visibleCardsCount);
+
+    if (totalSlides > 1) {
+      for (let i = 0; i < totalSlides; i++) {
+        const indicador = document.createElement('span');
+        indicador.classList.add('indicador');
+        if (i === Math.floor(index / visibleCardsCount)) {
+          indicador.classList.add('ativo');
+        }
+        indicador.addEventListener('click', () => {
+          index = i * visibleCardsCount;
+          if (index > filteredCards.length - visibleCardsCount) {
+            index = Math.max(0, filteredCards.length - visibleCardsCount);
+          }
+          atualizar();
+        });
+        indicadoresContainer.appendChild(indicador);
+      }
+    }
+  }
+
+
+  // Preencher o Dropdown de Marcas
+  function populateBrands() {
+    const brands = new Set();
+    allCards.forEach(card => {
+      const brand = card.getAttribute('data-brand');
+      if (brand && brand !== "Apresentação") brands.add(brand); 
+    });
+
+    const sortedBrands = Array.from(brands).sort();
+
+    sortedBrands.forEach(brand => {
+      const option = document.createElement('option');
+      option.value = brand;
+      option.textContent = brand;
+      brandSelect.appendChild(option);
+    });
+  }
+
+  // Lógica de Filtro e Pesquisa
+  function applyFilter() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const selectedBrand = brandSelect.value;
+
+    filteredCards = allCards.filter(card => {
+      const cardBrand = card.getAttribute('data-brand');
+      const cardText = card.textContent.toLowerCase(); 
+
+      // Se for o card de Apresentação, só o mostra se não houver filtro de marca nem pesquisa
+      if (cardBrand === "Apresentação") {
+        return searchTerm === '' && selectedBrand === 'all';
+      }
+
+      const brandMatch = selectedBrand === 'all' || cardBrand === selectedBrand;
+      const searchMatch = searchTerm === '' || cardText.includes(searchTerm);
+
+      return brandMatch && searchMatch;
+    });
+
+    // Controla a visibilidade dos cards no DOM
+    allCards.forEach(card => {
+      if (filteredCards.includes(card)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    // Lida com a mensagem de "Sem resultados"
+    if (filteredCards.length > 0) {
+      noResultsEl.style.display = 'none';
+      index = 0; 
+      updateCarrosselLayout();
+    } else {
+      noResultsEl.style.display = 'block';
+      btnNext.style.display = 'none';
+      btnPrev.style.display = 'none';
+      carrosEl.style.transform = 'translateX(0px)';
+      indicadoresContainer.innerHTML = '';
+    }
+    updateCarrosselNavigation();
+    updateIndicadores();
+  }
+
+  // Funções de Layout e Navegação
+  function recalcular() {
+    gap = parseFloat(getComputedStyle(carrosEl).getPropertyValue('gap')) || 16;
+    
+    const carouselInnerWidth = carrossel.clientWidth - (parseFloat(getComputedStyle(carrossel).paddingLeft) || 0) - (parseFloat(getComputedStyle(carrossel).paddingRight) || 0);
+    
+    const firstVisibleCard = filteredCards.find(c => !c.classList.contains('hidden'));
+    if (!firstVisibleCard) {
+      cardWidth = 0; 
+      visibleCardsCount = 0;
+      return;
+    }
+
+    cardWidth = firstVisibleCard.getBoundingClientRect().width;
+    
+    visibleCardsCount = Math.max(1, Math.floor((carouselInnerWidth + gap) / (cardWidth + gap)));
+    
+    if (index > filteredCards.length - visibleCardsCount) {
+      index = Math.max(0, filteredCards.length - visibleCardsCount);
+    }
+    atualizar();
+  }
+
+  // Função que aplica a nova posição do carrossel
+  function atualizar() {
+    const desloc = index * (cardWidth + gap); 
+    carrosEl.style.transform = `translateX(-${desloc}px)`;
+    updateCarrosselNavigation();
+    updateIndicadores();
+  }
+  
+  // Wrapper para recalcular o layout e atualizar a posição
+  function updateCarrosselLayout() {
+    recalcular();
+  }
+  
+  // Controla a visibilidade dos botões de navegação
+  function updateCarrosselNavigation() {
+    const canGoNext = index < filteredCards.length - visibleCardsCount;
+    const canGoPrev = index > 0;
+    const showButtons = filteredCards.length > visibleCardsCount;
+
+    btnNext.style.display = showButtons ? 'flex' : 'none';
+    btnPrev.style.display = showButtons ? 'flex' : 'none';
+
+    btnNext.style.visibility = canGoNext ? 'visible' : 'hidden';
+    btnPrev.style.visibility = canGoPrev ? 'visible' : 'hidden';
+  }
+
+
+  // Event Listeners para Filtros e Navegação
+  searchInput.addEventListener('input', applyFilter);
+  brandSelect.addEventListener('change', applyFilter);
+
+  btnNext.addEventListener('click', () => {
+    if (index < filteredCards.length - visibleCardsCount) {
+      index++;
+    } else { 
+      index = 0; // Loop
+    }
+    atualizar();
+  });
+
+  btnPrev.addEventListener('click', () => {
+    if (index > 0) {
+      index--;
+    } else { 
+      index = Math.max(0, filteredCards.length - visibleCardsCount); // Loop
+    }
+    atualizar();
+  });
+
+  // Funções de Inicialização
+  window.addEventListener('load', () => {
+    inicializarLinksBotoesSimular(allCards); // Configura todos os links dos botões "Simular Crédito"
+    populateBrands(); 
+    applyFilter(); // Aplica o filtro inicial (mostra tudo)
+    setTimeout(updateCarrosselLayout, 100); 
+  });
+
+  // Recálculo em resize
+  window.addEventListener('resize', () => {
+    clearTimeout(window._recalcTO);
+    window._recalcTO = setTimeout(updateCarrosselLayout, 120);
+  });
+
+  // Navegação por teclado
+  carrossel.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') btnNext.click();
+    if (e.key === 'ArrowLeft') btnPrev.click();
+  });
+
+  carrossel.tabIndex = 0;
+
+})();
+</script>
+
+<footer>
+<p>© 2025 AutoLux - Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

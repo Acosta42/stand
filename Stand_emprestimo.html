@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Simulador de Crédito Automóvel</title>
+  <link rel="stylesheet" href="style_emprestimo.css">
+
+
+</head>
+<body>
+ <div class="simulador">
+  <div class="formulario">
+   <h1>Simulador de Crédito Automóvel</h1>
+
+   <div id="info-carro">
+     </div>
+   
+   <label for="valor">Valor do Automóvel (€):</label>
+   <input type="text" id="valor" placeholder="Ex: 12 900,00">
+
+   <label for="entrada">Entrada (€):</label>
+      <input type="text" id="entrada" placeholder="Ex: 2 580,00">
+
+   <label for="juros">Taxa de Juros Anual (%):</label>
+   <select id="juros"></select>
+
+   <label for="prazo">Prazo (em meses):</label>
+   <select id="prazo"></select>
+
+   <button onclick="calcularPrestacao()" class="btn-simular-emprestimo">Simular Empréstimo</button>
+
+   <div class="footer">💡 Desenvolvido por Artur Costar</div>
+  </div>
+
+  <div class="resultado" id="resultado">
+   <h2>Prestação Mensal</h2>
+   <div class="valor">—</div>
+   <div class="detalhes">Preencha os campos e clique em “Simular Empréstimo”.</div>
+      
+      <div id="links-bancos">
+          <p>Links Úteis para Submissão de Crédito</p>
+          <div class="icones-bancos">
+              <a href="https://www.santander.pt" target="_blank" class="santander" title="Simulador Santander">SNT</a>
+              <a href="https://www.bancoctt.pt" target="_blank" class="banco-ctt" title="Simulador Banco CTT">CTT</a>
+              <a href="https://www.novobanco.pt" target="_blank" class="novobanco" title="Simulador Novo Banco">NB</a>
+              </div>
+      </div>
+  </div>
+ </div>
+
+ <button class="voltar" onclick="window.history.back()">↩</button>  <script>
+  // Função utilitária para formatar um número para a moeda portuguesa (ex: 12.900,00)
+  function formatarParaPortugues(numero) {
+    if (isNaN(numero) || numero === null) return "";
+    return (parseFloat(numero)).toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+    
+    // Função utilitária para limpar a formatação portuguesa para um float
+    const limparValor = (valorString) => {
+        if (!valorString) return 0;
+        return parseFloat(valorString.replace(/\./g, "").replace(",", "."));
+    };
+
+  // 1. LER E PREENCHER DADOS DO CARRO VIA URL
+  function carregarDadosDoCarro() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modelo = urlParams.get('modelo');
+    const valor = urlParams.get('valor');
+    const imagem = urlParams.get('img');
+
+    const infoCarroDiv = document.getElementById('info-carro');
+    const valorInput = document.getElementById('valor');
+        const entradaInput = document.getElementById('entrada'); // Obter input da entrada
+
+    if (modelo && valor && imagem) {
+      // Preenche o campo de valor do automóvel
+      const valorFormatado = formatarParaPortugues(valor);
+      valorInput.value = valorFormatado;
+
+      // Preenche e exibe a informação do carro
+      infoCarroDiv.innerHTML = `
+        <img src="${imagem}" alt="${modelo}">
+        <h3>${modelo}</h3>
+        <p>Valor Selecionado: €${valorFormatado}</p>
+      `;
+      infoCarroDiv.style.display = 'block';
+
+    }
+        
+        // NOVO: Define a Entrada a zero se estiver vazio
+        if (entradaInput.value.length === 0) {
+      entradaInput.value = "0,00"; // Campo de entrada começa a zero
+    }
+
+        // Atualiza a mensagem inicial do resultado (se o valor for válido)
+        const resultadoDiv = document.getElementById("resultado");
+        if (valor) {
+            resultadoDiv.querySelector(".valor").innerText = "Pronto!";
+            resultadoDiv.querySelector(".detalhes").innerHTML = `Carro selecionado: <strong>${modelo || 'N/A'}</strong>. <br> Defina as condições de crédito e clique em "Simular Empréstimo".`;
+        }
+  }
+
+  // 2. Preenche juros (Mantido)
+  const jurosSelect = document.getElementById("juros");
+  for (let i = 0.25; i <= 30; i += 0.25) {
+   const option = document.createElement("option");
+   option.value = i.toFixed(2);
+   option.text = `${i.toFixed(2)}%`;
+   jurosSelect.appendChild(option);
+  }
+  jurosSelect.value = "0.25"; // Valor de juros inicial
+
+  // 3. Preenche prazos (Mantido)
+  const prazoSelect = document.getElementById("prazo");
+  for (let i = 6; i <= 120; i += 6) {
+   const option = document.createElement("option");
+   option.value = i;
+   option.text = `${i} meses`;
+   prazoSelect.appendChild(option);
+  }
+  prazoSelect.value = "60"; // Prazo inicial ajustado para 60 meses
+
+  // 4. Formata valores como xx.xxx,xx em tempo real (Mantido)
+  function formatarValor(input) {
+   let valor = input.value.replace(/[^\d]/g, "");
+   // Se não houver valor, retorna vazio para evitar "0,00"
+   if (valor.length === 0) {
+    input.value = "";
+    return;
+   }
+   valor = (parseFloat(valor) / 100).toFixed(2) + "";
+   valor = valor.replace(".", ",");
+   valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+   input.value = valor;
+  }
+
+  document.getElementById("valor").addEventListener("input", function () {
+   formatarValor(this);
+  });
+
+  document.getElementById("entrada").addEventListener("input", function () {
+   formatarValor(this);
+  });
+
+  // 5. Função de Cálculo (com atualização para os links dos bancos)
+  function calcularPrestacao() {
+    // Usa a função limparValor global para remover pontos de milhar e trocar vírgula por ponto decimal
+    const valor = limparValor(document.getElementById("valor").value);
+    const entrada = limparValor(document.getElementById("entrada").value);
+    const jurosAnual = parseFloat(document.getElementById("juros").value);
+    const prazo = parseInt(document.getElementById("prazo").value);
+
+    const resultadoDiv = document.getElementById("resultado");
+    const valorDiv = resultadoDiv.querySelector(".valor");
+    const detalhesDiv = resultadoDiv.querySelector(".detalhes");
+        const linksBancosDiv = document.getElementById("links-bancos");
+
+    if (isNaN(valor) || isNaN(entrada) || isNaN(jurosAnual) || isNaN(prazo) || valor <= 0) {
+      valorDiv.innerText = "⚠️";
+      detalhesDiv.innerText = "Por favor, preencha todos os campos corretamente com valores positivos.";
+            linksBancosDiv.style.display = 'none';
+      return;
+    }
+
+    if (entrada > valor) {
+      valorDiv.innerText = "❌";
+      detalhesDiv.innerText = "A entrada não pode ser superior ao valor do automóvel.";
+            linksBancosDiv.style.display = 'none';
+      return;
+    }
+
+    const montanteFinanciado = valor - entrada;
+    const jurosMensal = jurosAnual / 12 / 100;
+    
+    let prestacao;
+    if (montanteFinanciado <= 0) {
+      prestacao = 0;
+    } else if (jurosMensal === 0) {
+      prestacao = montanteFinanciado / prazo;
+    } else {
+      // Fórmula da prestação (Amortização Constante - Price)
+      prestacao = (montanteFinanciado * jurosMensal) / (1 - Math.pow(1 + jurosMensal, -prazo));
+    }
+    
+    const totalPago = prestacao * prazo;
+    const mtic = totalPago + entrada;
+
+    // Apresentação dos resultados
+    valorDiv.innerText = `€ ${formatarParaPortugues(prestacao)}`;
+    detalhesDiv.innerHTML = `💸 Montante Financiado: <strong>€ ${formatarParaPortugues(montanteFinanciado)}</strong><br>
+      ⏳ Prazo: <strong>${prazo} meses</strong><br>
+      📈 TAN: <strong>${jurosAnual.toFixed(2)}%</strong><br>
+      💰 MTIC: <strong>€ ${formatarParaPortugues(mtic)}</strong>
+    `;
+        
+        // NOVO: Mostrar links após o cálculo
+        if (montanteFinanciado > 0) {
+            linksBancosDiv.style.display = 'block';
+        } else {
+            linksBancosDiv.style.display = 'none';
+        }
+  }
+    // Torna a função de cálculo acessível no escopo global
+    window.calcularPrestacao = calcularPrestacao;
+
+  // Chamada inicial para carregar os dados do carro e definir a entrada a zero
+  window.onload = carregarDadosDoCarro;
+
+ </script>
+</body>
+</html>

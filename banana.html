@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>Carros - AutoLux</title>
+ <link rel="stylesheet" href="style_carros.css">
+</head>
+<body>
+
+<header>
+ <img src="imagens/banners/banner.png" alt="Banner banana">
+</header>
+
+<nav>
+ <div class="logo-esquerda">
+  <a href="index.html"><img src="imagens/logo-white.png" alt="Logo AutoLux"></a>
+ </div>
+
+ <div class="menu-centro">
+  <ul>
+   <li><a href="index.html" class="ativo">Home</a></li>
+  </ul>
+ </div>
+
+ <div class="vazio"></div>
+</nav>
+
+<section class="catalogo">
+ <h2>Modelos banana em Destaque</h2>
+
+ <div class="carrossel" aria-label="Carrossel de modelos banana">
+  <button class="prev" aria-label="Anterior">&#10094;</button>
+
+  <div class="carros">
+<div class="carro" data-brand="banana" data-link-img="banana i7 M70.png">
+    <img src="Banana_1.jpeg" alt="banana i7 M70">
+    <h3>banana i7 M70</h3>
+    <p>2024 | Elétrico | 5.000 km</p>
+    <span class="preco-carro">€125.000</span>
+    <a href="#" class="btn-simular">Simular Crédito</a>
+</div>
+<div class="carro" data-brand="banana" data-link-img="banana M2.png">
+    <img src="Banana_2.jpeg" alt="banana M2">
+    <h3>banana M2</h3>
+    <p>2023 | Gasolina | 10.000 km</p>
+    <span class="preco-carro">€89.500</span>
+    <a href="#" class="btn-simular">Simular Crédito</a>
+</div>
+<div class="carro" data-brand="banana" data-link-img="banana M3 Competition Touring.png">
+    <img src="Banana_3.jpeg" alt="banana M3 Touring">
+    <h3>banana M3 Competition Touring</h3>
+    <p>2023 | Gasolina | 12.000 km</p>
+    <span class="preco-carro">€98.900</span>
+    <a href="#" class="btn-simular">Simular Crédito</a>
+</div>
+<div class="carro" data-brand="banana" data-link-img="banana M8 Coupé.png">
+    <img src="Banana_4.jpeg" alt="banana M8 Coupé">
+    <h3>banana M8 Coupé</h3>
+    <p>2022 | Gasolina | 8.000 km</p>
+    <span class="preco-carro">€112.400</span>
+    <a href="#" class="btn-simular">Simular Crédito</a>
+</div>
+<div class="carro" data-brand="banana" data-link-img="banana M8 Gran Coupé.png">
+    <img src="Banana_1.jpeg" alt="banana M8 Gran Coupé">
+    <h3>banana M8 Gran Coupé</h3>
+    <p>2022 | Gasolina | 9.000 km</p>
+    <span class="preco-carro">€114.200</span>
+    <a href="#" class="btn-simular">Simular Crédito</a>
+</div>
+<div class="carro" data-brand="banana" data-link-img="banana X4 M.png">
+    <img src="Banana_2.jpeg" alt="banana X4 M">
+    <h3>banana X4 M</h3>
+    <p>2021 | Gasolina | 20.000 km</p>
+    <span class="preco-carro">€78.600</span>
+    <a href="#" class="btn-simular">Simular Crédito</a>
+</div>
+<div class="carro" data-brand="banana" data-link-img="banana X5 M.png">
+    <img src="Banana_3.jpeg" alt="banana X5 M">
+    <h3>banana X5 M</h3>
+    <p>2021 | Híbrido | 22.000 km</p>
+    <span class="preco-carro">€85.300</span>
+    <a href="#" class="btn-simular">Simular Crédito</a>
+</div>
+<div class="carro" data-brand="banana" data-link-img="banana X7 M60i xDrive.png">
+    <img src="Banana_4.jpeg" alt="banana X7 M60i">
+    <h3>banana X7 M60i xDrive</h3>
+    <p>2023 | Gasolina | 6.000 km</p>
+    <span class="preco-carro">€132.000</span>
+    <a href="#" class="btn-simular">Simular Crédito</a>
+</div>
+<div class="carro" data-brand="banana" data-link-img="banana XM.png">
+    <img src="Banana_1.jpeg" alt="banana XM">
+    <h3>banana XM</h3>
+    <p>2024 | Híbrido | 4.000 km</p>
+    <span class="preco-carro">€145.900</span>
+    <a href="#" class="btn-simular">Simular Crédito</a>
+</div>
+<div class="carro" data-brand="banana" data-link-img="banana Z4 M4Oi ROADSTER.png">
+    <img src="Banana_1.jpeg" alt="banana Z4 M40i">
+    <h3>banana Z4 M40i Roadster</h3>
+    <p>2022 | Gasolina | 11.000 km</p>
+    <span class="preco-carro">€72.500</span>
+    <a href="#" class="btn-simular">Simular Crédito</a>
+</div>
+  </div>
+
+  <div class="carrossel-indicadores"></div> <button class="next" aria-label="Próximo">&#10095;</button>
+
+ </div>
+</section>
+
+<script>
+    // Função auxiliar para criar o link do simulador (A MESMA que garante o botão!)
+    function criarLinkSimulador(carroDiv) {
+        const nome = carroDiv.querySelector('h3').textContent.trim();
+        // Obtém o preço, removendo o '€', pontos de milhar e substituindo a vírgula (se existir) por ponto (para URL)
+        let precoTexto = carroDiv.querySelector('.preco-carro').textContent.replace('€', '').trim();
+        const preco = precoTexto.replace(/\./g, '').replace(',', '.'); 
+        const imagem = carroDiv.getAttribute('data-link-img');
+        
+        const nomeCodificado = encodeURIComponent(nome);
+        const precoCodificado = encodeURIComponent(preco);
+        const imagemCodificada = encodeURIComponent(imagem);
+        
+        return `stand_emprestimo.html?modelo=${nomeCodificado}&valor=${precoCodificado}&img=${imagemCodificada}`;
+    }
+
+    // Inicializa os links do simulador para todos os botões
+    function inicializarLinksBotoesSimular(cards) {
+        cards.forEach(card => {
+            const btn = card.querySelector('.btn-simular');
+            // Verifica se o botão e o atributo de imagem existem
+            if (btn && card.getAttribute('data-link-img')) {
+                btn.href = criarLinkSimulador(card);
+            }
+        });
+    }
+
+    // ======================================================================
+    // INÍCIO DO SCRIPT DO CARROSSEL (Organizado com Indicadores)
+    // ======================================================================
+    (function () {
+        const carrossel = document.querySelector('.carrossel');
+        const carrosEl = carrossel.querySelector('.carros');
+        const cards = Array.from(carrossel.querySelectorAll('.carro'));
+        const btnNext = carrossel.querySelector('.next');
+        const btnPrev = carrossel.querySelector('.prev');
+        const indicadoresContainer = carrossel.querySelector('.carrossel-indicadores');
+
+        let index = 0;
+        let visible = 4;
+        let cardWidth = 0;
+        let gap = parseFloat(getComputedStyle(carrosEl).gap) || 16;
+        let totalCards = cards.length;
+
+        // NOVO: Função para criar/atualizar os indicadores
+        function updateIndicadores() {
+            indicadoresContainer.innerHTML = '';
+            const totalSlides = Math.ceil(totalCards / visible);
+
+            if (totalSlides > 1) {
+                for (let i = 0; i < totalSlides; i++) {
+                    const indicador = document.createElement('span');
+                    indicador.classList.add('indicador');
+                    // Verifica qual é o slide atual
+                    if (i === Math.floor(index / visible)) {
+                        indicador.classList.add('ativo');
+                    }
+                    indicador.addEventListener('click', () => {
+                        index = i * visible;
+                        if (index > totalCards - visible) {
+                            index = Math.max(0, totalCards - visible);
+                        }
+                        atualizar();
+                    });
+                    indicadoresContainer.appendChild(indicador);
+                }
+            }
+        }
+
+        // NOVO: Controla a visibilidade dos botões de navegação
+        function updateCarrosselNavigation() {
+            const showButtons = totalCards > visible;
+            
+            // Garante que os botões só aparecem se houver mais cards do que o visível
+            btnNext.style.display = showButtons ? 'flex' : 'none';
+            btnPrev.style.display = showButtons ? 'flex' : 'none';
+
+            // Controla a visibilidade (com o efeito de fade-out do CSS)
+            btnNext.style.visibility = index < totalCards - visible ? 'visible' : 'hidden';
+            btnPrev.style.visibility = index > 0 ? 'visible' : 'hidden';
+        }
+
+        function recalcular() {
+            const carouselWidth = carrossel.clientWidth - parseFloat(getComputedStyle(carrossel).paddingLeft || 0) - parseFloat(getComputedStyle(carrossel).paddingRight || 0);
+            
+            gap = parseFloat(getComputedStyle(carrosEl).gap) || 16; 
+
+            if (cards.length > 0) {
+                 cardWidth = cards[0].getBoundingClientRect().width;
+            } else {
+                 cardWidth = 0;
+            }
+
+            visible = Math.max(1, Math.floor((carouselWidth + gap) / (cardWidth + gap)));
+            
+            if (index > totalCards - visible) index = Math.max(0, totalCards - visible);
+            
+            atualizar();
+        }
+
+        function atualizar() {
+            // A transição suave é definida no seu ficheiro CSS (.carros)
+            const desloc = index * (cardWidth + gap);
+            carrosEl.style.transform = `translateX(-${desloc}px)`;
+            updateCarrosselNavigation();
+            updateIndicadores();
+        }
+
+        // Navegação
+        btnNext.addEventListener('click', () => {
+            if (index < totalCards - visible) {
+                index++;
+            } else { // Loop para o início
+                index = 0;
+            }
+            atualizar();
+        });
+
+        btnPrev.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+            } else { // Loop para o final
+                index = Math.max(0, totalCards - visible);
+            }
+            atualizar();
+        });
+
+        // Inicialização
+        window.addEventListener('load', () => {
+            inicializarLinksBotoesSimular(cards); // <--- Chama a função para adicionar os links
+            setTimeout(recalcular, 100); 
+        });
+
+        // Recálculo em resize
+        window.addEventListener('resize', () => {
+            clearTimeout(window._recalcTO);
+            window._recalcTO = setTimeout(recalcular, 120);
+        });
+
+        // Garantir recálculo após carregamento de todas as imagens
+        const imgs = carrossel.querySelectorAll('img');
+        let imagesToLoad = imgs.length;
+        if (imagesToLoad > 0) {
+            imgs.forEach(img => {
+                if (img.complete) imagesToLoad--;
+                else {
+                    img.addEventListener('load', () => { if (--imagesToLoad <= 0) recalcular(); });
+                    img.addEventListener('error', () => { if (--imagesToLoad <= 0) recalcular(); });
+                }
+            });
+        }
+        if (imagesToLoad <= 0) recalcular();
+
+        // Navegação por teclado
+        carrossel.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') btnNext.click();
+            if (e.key === 'ArrowLeft') btnPrev.click();
+        });
+
+        carrossel.tabIndex = 0;
+    })();
+</script>
+
+<footer>
+ <p>© 2025 AutoLux - Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+* { box-sizing: border-box; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #222;
+  background: #e6eef5;
+}
+
+header {
+  text-align: center;
+  padding: 20px 10px;
+  background: #fff;
+}
+header img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #0b2a45;
+  color: #fff;
+}
+.logo-esquerda img { height: 40px; display: block; }
+
+.menu-centro { flex: 1; display: flex; justify-content: center; }
+.menu-centro ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 16px; }
+.menu-centro a { color: #fff; text-decoration: none; font-weight: 500; }
+.menu-centro a.ativo { font-weight: bold; }
+.vazio { width: 40px; }
+
+.catalogo { text-align: center; padding: 40px 16px; }
+
+.filtros {
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  padding: 0 16px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.filtro-grupo { display: flex; flex-direction: column; min-width: 200px; flex-grow: 1; }
+.filtro-grupo label { font-size: 0.9rem; margin-bottom: 4px; font-weight: 600; color: #0b2a45; }
+.filtro-grupo input, .filtro-grupo select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #fff;
+  height: 40px;
+}
+
+/* === CARROSSEL === */
+.carrossel {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px 60px; /* Aumenta o padding para os botões ficarem mais "dentro" */
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.carros {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.6s cubic-bezier(.25,.1,.25,1); /* Transição mais suave e elegante */
+  will-change: transform;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+.carro {
+  min-width: calc((100% - 16px * 3) / 4);
+  flex: 0 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex; /* Para organizar o conteúdo */
+  flex-direction: column; /* Conteúdo em coluna */
+}
+.carro.hidden { display: none !important; }
+
+.carro img, .carro video {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  flex-shrink: 0; /* Impede que a imagem encolha */
+}
+.carro h3 { margin: 8px 0 6px; font-size: 1rem; color: #111; }
+.carro p { margin: 0; color: #666; font-size: 0.9rem; flex-grow: 1; /* Ocupa espaço disponível */ }
+.carro .preco-carro { 
+    display: block; 
+    margin-top: 8px; 
+    font-weight: 700; 
+    color: #0066cc; 
+    font-size: 1.1rem; /* Um pouco maior para o preço */
+}
+
+/* Botões de navegação do carrossel */
+.carrossel button.prev, .carrossel button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px; /* Um pouco maiores */
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.6); /* Mais escuro */
+  color: white;
+  font-size: 24px; /* Ícone maior */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Sombra para dar profundidade */
+  transition: background 0.3s, transform 0.3s, opacity 0.3s;
+}
+.carrossel button.prev:hover, .carrossel button.next:hover {
+  background: rgba(0,0,0,0.9);
+  transform: translateY(-50%) scale(1.05); /* Pequeno efeito de zoom */
+}
+.carrossel button.prev { left: 16px; } /* Mais afastado da borda */
+.carrossel button.next { right: 16px; } /* Mais afastado da borda */
+
+.carrossel button[style*="visibility: hidden"] { /* Para botões hidden */
+    opacity: 0;
+    pointer-events: none; /* Impede cliques */
+}
+
+
+.no-results {
+  text-align: center;
+  width: 100%;
+  padding: 40px 0;
+  font-size: 1.1rem;
+  color: #666;
+  display: none;
+}
+
+/* NOVO: Estilos para os indicadores do carrossel */
+.carrossel-indicadores {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 8px; /* Espaçamento entre os indicadores */
+}
+
+.indicador {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.indicador.ativo {
+    background-color: #0066cc; /* Cor primária ativa */
+    transform: scale(1.2); /* Um pouco maior quando ativo */
+}
+
+.indicador:hover {
+    background-color: #004d99;
+    transform: scale(1.1);
+}
+
+
+/* Estilo para o botão 'Simular Crédito' */
+.carro .btn-simular {
+    display: block;
+    width: 100%;
+    margin-top: 12px; /* Aumenta um pouco a margem */
+    padding: 10px 10px; /* Um pouco mais de padding */
+    text-align: center;
+    background-color: #0066cc; /* Cor primária do site */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px; /* Bordas um pouco mais arredondadas */
+    font-size: 0.95rem; /* Levemente maior */
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    flex-shrink: 0; /* Impede que o botão encolha */
+}
+
+.carro .btn-simular:hover {
+    background-color: #004d99;
+    transform: translateY(-2px); /* Pequeno efeito ao passar o mouse */
+}
+
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .carro { min-width: calc((100% - 16px * 2) / 3); }
+}
+@media (max-width: 768px) {
+  .carro { min-width: calc((100% - 16px) / 2); }
+  .carrossel { padding: 16px 44px; }
+  .carrossel button.prev { left: 8px; }
+  .carrossel button.next { right: 8px; }
+}
+@media (max-width: 480px) {
+  .carro { min-width: 100%; }
+  .carrossel { padding: 12px; }
+  .carrossel button.prev { left: 4px; width: 40px; height: 40px; font-size: 20px;}
+  .carrossel button.next { right: 4px; width: 40px; height: 40px; font-size: 20px;}
+}
+footer { text-align: center; padding: 20px; background: #fff; margin-top: 20px; }
