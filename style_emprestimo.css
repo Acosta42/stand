@@ -218,4 +218,14 @@
         .resultado {
             padding-top: 10px; /* Reduz o padding para ecrãs pequenos */
         }
+
+       /* Adiciona isto no final do ficheiro para melhorar o aspeto do botão voltar */
+.voltar {
+    /* ... o resto do código existe ... */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
     }
