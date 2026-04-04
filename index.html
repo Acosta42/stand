@@ -2,35 +2,40 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>AutoLux - Stand de Automóveis</title>
     <link rel="stylesheet" href="style.css">
-
+    <!-- Font Awesome para o ícone do menu hamburguer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
         <img src="BannerCarros.png" alt="Banner AutoLux">
-        <h1>AutoLux - O Seu Stand de Confiança</h1>" alt="Banner AutoLux">
         <h1>AutoLux - O Seu Stand de Confiança</h1>
     </header>
 
-    <!-- MENU -->
     <nav>
         <div class="logo-esquerda">
             <a href="index.html"><img src="logo-white.png" alt="Logo AutoLux"></a>
         </div>
-        <div class="menu-direita">
+        
+        <!-- Botão Hambúrguer (só aparece em mobile) -->
+        <div class="menu-hamburguer" id="menu-hamburguer">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="menu-direita" id="menu-direita">
             <ul>
                 <li><a href="index.html" class="ativo">Home</a></li>
                 <li><a href="quem-somos.html">Quem Somos</a></li>
-                <li><a href="Stand_emprestimo.html">Simulador de empréstimo</a></li>
+                <li><a href="carros.html">Catálogo</a></li> <!-- Link direto para o catálogo principal -->
+                <li><a href="Stand_emprestimo.html">Simulador</a></li>
                 <li class="submenu">
                     <a href="#equipa">Equipa</a>
                     <div class="submenu-content">
                         <a href="Artur_Costa.html">Artur Costa</a>
-                        <a href="João_Costa.html">João Costa</a>
+                        <a href="Joao_Costa.html">João Costa</a>
                         <a href="Medyan.html">Medyan Souza</a>
                         <a href="Nathan.html">Nathan Victor</a>
                         <a href="Claudio.html">Cláudio Rodrigues</a>
@@ -41,59 +46,58 @@
         </div>
     </nav>
 
-    <!-- CATÁLOGO -->
     <section class="catalogo">
         <h2>O Nosso Catálogo</h2>
         <div class="carros">
             <div class="carro"> 
-            <a href="carros.html" target="_blank" rel="noopener noreferrer">
-                <img src="Stand_1.png" alt="stand 1">
-            </a>
-            <h3>Catálogo dos veículos</h3>
-            <p>Basta um clique na imagem:</p>
-            </div>
-
-
-            <div class="carro">
-            <a href="banana.html" target="_blank" rel="noopener noreferrer">
-                <img src="Banana_1.jpeg" alt="Carro 2">
+                <a href="carros.html">
+                    <img src="stand_1.png" alt="Catálogo Completo">
                 </a>
-                <p>Basta um clique na imagem:</p>
-                <h3>banana</h3>
-
+                <h3>Catálogo Completo</h3>
+                <p>Todos os nossos veículos</p>
             </div>
 
             <div class="carro">
-            <a href="chourico.html" target="_blank" rel="noopener noreferrer">
-                <img src="Chourico_1.jpeg" alt="Carro 1">
-                 </a>
-                <p>Basta um clique na imagem:</p>
-                <h3>chourico</h3>
+                <a href="banana.html">
+                    <img src="Banana_1.jpeg" alt="BMW">
+                </a>
+                <h3>Banana (BMW)</h3>
+                <p>Série Premium</p>
+            </div>
 
+            <div class="carro">
+                <a href="chourico.html">
+                    <img src="Chourico_1.jpeg" alt="Honda">
+                </a>
+                <h3>Chouriço (Honda)</h3>
+                <p>Desportividade e confiança</p>
             </div>
             <div class="carro">
-                <a href="outros.html" target="_blank" rel="noopener noreferrer">
-                <img src="outro_1.jpeg" alt="Carro 3">
-                 </a>
-                <p>Basta um clique na imagem:</p>
-                <h3>outros</h3>
-
+                <a href="outros.html">
+                    <img src="outro_1.jpeg" alt="Mercedes">
+                </a>
+                <h3>Outros (Mercedes)</h3>
+                <p>Elegância alemã</p>
             </div>
         </div>
     </section>
-
-
-
-</section>
 
     <section class="banner-final">
         <img src="Banner1.png" alt="Banner Final">
     </section>
 
-    <!-- RODAPÉ -->
     <footer>
         <p>© 2025 AutoLux - Todos os direitos reservados.</p>
     </footer>
 
+    <script>
+        // Script para o Menu Hambúrguer
+        const hamburguer = document.getElementById('menu-hamburguer');
+        const menuDireita = document.getElementById('menu-direita');
+
+        hamburguer.addEventListener('click', () => {
+            menuDireita.classList.toggle('ativo');
+        });
+    </script>
 </body>
 </html>
